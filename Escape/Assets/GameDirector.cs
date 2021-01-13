@@ -24,6 +24,8 @@ public class GameDirector : MonoBehaviour{
       this.count += Time.deltaTime;
       this.timer.GetComponent<Text>().text = count.ToString("F2") + "秒";
       if(this.hp <= 0){
+        PlayerPrefs.SetFloat("SCORE", this.count);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("GameOverScene");
       }
     }
